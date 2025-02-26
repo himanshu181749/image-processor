@@ -102,4 +102,6 @@ S. No.,Product Name,Input Image Urls
 
 ---
 
-This documentation provides all the necessary details to effectively use the Image Processing API. For further assistance, please refer to the project's GitHub repository or contact the support team.
+For detailed design information, please refer to the [Design Document](https://github.com/himanshu181749/image-processor/blob/main/DESIGN.md). Additionally, the Low-Level Design (LLD) documentation can be found [here](https://github.com/himanshu181749/image-processor/blob/main/system-diagram.png).
+
+This documentation provides all the necessary details to effectively utilize the Image Processing API. For further assistance, please visit the project's [GitHub repository](https://github.com/himanshu181749/image-processor) or contact our support team.
