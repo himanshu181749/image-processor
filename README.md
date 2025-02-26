@@ -1,17 +1,17 @@
-# **Image Processing API**
+# **Image Processing API Documentation**
 
-A RESTful API that processes images from a **CSV file**, optimizes them, and stores metadata in **MongoDB**. Supports **asynchronous processing** with **request tracking** and optional **webhook notifications**.
+This document provides comprehensive information about the Image Processing API, a RESTful service designed to process images from CSV files, optimize them, and store metadata in MongoDB. The API supports asynchronous processing with request tracking and optional webhook notifications.
 
 ---
 
 ## **Features**
 
-- **CSV Upload** – Accepts CSV files with image URLs.
-- **Validation** – Ensures correct format and accessible images.
-- **Image Processing** – Resizes images to **50% quality** using **Sharp**.
-- **Asynchronous Processing** – Returns a `requestId` for tracking.
-- **Status API** – Retrieves job progress and processed image URLs.
-- **Webhook Support** – Optional callback when processing is complete.
+- **CSV Upload**: Accepts CSV files containing image URLs.
+- **Validation**: Ensures the CSV file is correctly formatted and the images are accessible.
+- **Image Processing**: Utilizes the Sharp library to resize images to 50% quality.
+- **Asynchronous Processing**: Returns a `requestId` for tracking the processing status.
+- **Status API**: Allows retrieval of job progress and processed image URLs.
+- **Webhook Support**: Provides an optional callback mechanism to notify when processing is complete.
 
 ---
 
@@ -19,11 +19,11 @@ A RESTful API that processes images from a **CSV file**, optimizes them, and sto
 
 ### **1. Upload API**
 
-- **Endpoint:** `POST /api/upload`
-- **Content-Type:** `multipart/form-data`
-- **Parameters:**
-  - `csv` (**required**) – CSV file containing `S. No.`, `Product Name`, and `Input Image Urls`.
-  - `webhookUrl` (_optional_) – URL to receive a callback when processing completes.
+- **Endpoint**: `POST /api/upload`
+- **Content-Type**: `multipart/form-data`
+- **Parameters**:
+  - `csv` (**required**): A CSV file containing columns `S. No.`, `Product Name`, and `Input Image Urls`.
+  - `webhookUrl` (_optional_): A URL to receive a callback notification upon completion of image processing.
 
 #### **Example Response**
 
@@ -33,12 +33,10 @@ A RESTful API that processes images from a **CSV file**, optimizes them, and sto
 }
 ```
 
----
-
 ### **2. Status API**
 
-- **Endpoint:** `GET /api/status/:requestId`
-- **Returns:** Processing status and output image URLs.
+- **Endpoint**: `GET /api/status/:requestId`
+- **Returns**: The processing status and URLs of the processed images.
 
 #### **Example Response**
 
@@ -61,9 +59,13 @@ A RESTful API that processes images from a **CSV file**, optimizes them, and sto
 
 ---
 
-## **Setup & Deployment**
+## **Setup and Deployment**
+
+To set up and deploy the Image Processing API, follow these steps:
 
 1. **Clone the Repository**
+
+   Clone the repository to your local machine using the following command:
 
    ```bash
    git clone https://github.com/himanshu181749/image-processor.git
@@ -72,11 +74,16 @@ A RESTful API that processes images from a **CSV file**, optimizes them, and sto
 
 2. **Install Dependencies**
 
+   Navigate to the project directory and install the necessary dependencies:
+
    ```bash
    npm install
    ```
 
 3. **Run the Server**
+
+   Start the server using the following command:
+
    ```bash
    npm start
    ```
@@ -85,6 +92,8 @@ A RESTful API that processes images from a **CSV file**, optimizes them, and sto
 
 ## **Sample CSV File**
 
+Below is an example of a CSV file that can be uploaded to the API:
+
 ```csv
 S. No.,Product Name,Input Image Urls
 1,Teddy Bear,https://images.pexels.com/photos/4488352/pexels-photo-4488352.jpeg
@@ -92,3 +101,5 @@ S. No.,Product Name,Input Image Urls
 ```
 
 ---
+
+This documentation provides all the necessary details to effectively use the Image Processing API. For further assistance, please refer to the project's GitHub repository or contact the support team.
