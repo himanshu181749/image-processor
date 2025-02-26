@@ -65,8 +65,6 @@ To set up and deploy the Image Processing API, follow these steps:
 
 1. **Clone the Repository**
 
-   Clone the repository to your local machine using the following command:
-
    ```bash
    git clone https://github.com/himanshu181749/image-processor.git
    cd image-processor
@@ -74,34 +72,43 @@ To set up and deploy the Image Processing API, follow these steps:
 
 2. **Install Dependencies**
 
-   Navigate to the project directory and install the necessary dependencies:
-
    ```bash
    npm install
    ```
 
 3. **Run the Server**
 
-   Start the server using the following command:
-
    ```bash
    npm start
    ```
 
+4. **Testing the API through Postman**
+
+   - **Install Postman**: Download and install Postman from [postman.com](https://www.postman.com/).
+
+   - **Configure the Upload API**:
+
+     - Create a new `POST` request in Postman.
+     - Set the URL to `http://localhost:3000/api/upload`.
+     - Select the `multipart/form-data` content type in the Body tab.
+     - Add the following fields:
+       - `Key`: `csv`, `Type`: `File`, `Value`: Select your `test.csv` file.
+       - `Key`: `webhookUrl` (_optional_), `Type`: `Text`, `Value`: A valid webhook URL.
+     - Send the request to receive a `requestId` in the response.
+
+   - **Configure the Status API**:
+     - Create a new `GET` request in Postman.
+     - Set the URL to `http://localhost:3000/api/status/:requestId`, replacing `:requestId` with the `requestId` received from the Upload API.
+     - Send the request to retrieve the processing status and processed image URLs.
+
 ---
 
-## **Sample CSV File**
+### Postman Collection (Shortcut for the Testing)
 
-Below is an example of a CSV file that can be uploaded to the API:
-
-```csv
-S. No.,Product Name,Input Image Urls
-1,Teddy Bear,https://images.pexels.com/photos/4488352/pexels-photo-4488352.jpeg
-2,Toy Car,https://images.pexels.com/photos/163036/toy-car-car-mini-cooper-mini-163036.jpeg
-```
+You can use the provided Postman collection to test the API endpoints. Download the collection from the repository and import it into Postman.
 
 ---
 
 For detailed design information, please refer to the [Design Document](https://github.com/himanshu181749/image-processor/blob/main/DESIGN.md). Additionally, the Low-Level Design (LLD) documentation can be found [here](https://github.com/himanshu181749/image-processor/blob/main/system-diagram.png).
 
-This documentation provides all the necessary details to effectively utilize the Image Processing API. For further assistance, please visit the project's [GitHub repository](https://github.com/himanshu181749/image-processor) or contact our support team.
+For further assistance, please visit the project's [GitHub repository](https://github.com/himanshu181749/image-processor) or contact our support team.
